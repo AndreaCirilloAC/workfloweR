@@ -1,0 +1,7 @@
+Release Year;Full Movie Name;Episode Name - Long;Episode Name - Short;Episode Number;Episode Number - Roman;Box Office Gross - North America;Box Office Gross - Non-NA;Box Office Gross - Worldwide;Box Office Gross - NA - Inflation Adjusted;IMDB Rating;IMDB Rating - x10;IMDB Number of Votes;Metacritic - Metascore;Rotten Tomatoes Rating;Rotten Tomatoes Number of Reviews;Academy Awards - Nominated ;Academy Awards - Won
+1977;Star Wars: Episode IV - A New Hope;Episode IV - A New Hope;A New Hope;4;IV;460998007; 314400000.00 ; 775398007.00 ;1314850434;8.7;87;815837;92;94;;4;7
+1980;Star Wars: Episode V - The Empire Strikes Back;Episode V - The Empire Strikes Back;The Empire Strikes Back;5;V;290475067; 247900000.00 ; 538375067.00 ;751204635;8.8;88;744284;79;94;;2;2
+1983;Star Wars: Episode VI - Return of the Jedi;Episode VI - Return of the Jedi;Return of the Jedi;6;VI;309306177; 165800000.00 ; 475106177.00 ;724064338;8.4;84;595139;52;80;;4;1
+1999;Star Wars: Episode I - The Phantom Menace;Episode I - The Phantom Menace;The Phantom Menace;1;I;474544677; 552500000.00 ; 1027044677.00 ;699066761;6.5;65;477010;51;56;;3;0
+2002;Star Wars: Episode II - Attack of the Clones;Episode II - Attack of the Clones;Attack of the Clones;2;II;310676740; 338721588.00 ; 649398328.00 ;414858818;6.7;67;410010;54;66;;1;0
+2005;Star Wars: Episode III - Revenge of the Sith;Episode III - Revenge of the Sith;Revenge of the Sith;3;III;380270577; 468484191.00 ; 848754768.00 ;460743580;7.7;77;461850;68;79;;1;0
