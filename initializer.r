@@ -1,5 +1,7 @@
 #copy bundle and unzip, removing zip file
-
+ 
+source("app.R")
+shinyApp(ui = ui, server = server)
 file.copy(paste(path_from,"/analysis_workspace.zip",sep = ""),
           paste(path_to,"/analysis_workspace.zip",sep = ""))
 setwd(path_to)
