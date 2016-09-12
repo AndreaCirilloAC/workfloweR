@@ -1,4 +1,5 @@
 library(shiny)
+choices_vector <- c("R","sas")
 server <- function(input, output) {
 observe(
     if(input$initialize_button){
@@ -22,7 +23,9 @@ observe(
         
         sink("sas/00_libraries_and_variables.sas")
         cat(paste("%let root_folder = ",path_to,";\n",sep = ""))
-        cat("libname root 	 '&root_folder'      access=temp;")
+        cat("libname root 	 '&root_folder'      access=temp;\n")
+        cat(paste("%let data_folder = ",path_to,"/data;\n",sep = ""))
+        cat("libname data 	 '&data_folder'      access=temp;\n")
         sink()
         
         # initialize report
@@ -76,7 +79,21 @@ observe(
         
         sink()
         
+        # remove code folder based on user selections
+        dir_to_remove <- "Users/andrea_cirillo/Desktop/analysis_workspace"
         
+     
+          language_remover <- function(root_path,lan){
+            if (!(lan %in% input$list)){
+            dir_to_remove <- paste(root_path,lan, sep = '/')
+            print(dir_to_remove)
+            command <- paste("rm",dir_to_remove,"-d -f -r ",sep = " ")
+            system(command)
+   
+            }
+          }
+        sapply(choices_vector,language_remover, root_path = path_to)
+
     }
     
   )
@@ -89,7 +106,7 @@ ui <- fluidPage(
   p("select languages you are going to work with within this project"),
   checkboxGroupInput("list",
                      label = "select languages",
-                     choices = c("R","sas"),
+                     choices = choices_vector,
                      selected = c("R")),
   actionButton("initialize_button","initialize")
 )
