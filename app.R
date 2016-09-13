@@ -1,10 +1,21 @@
 library(shiny)
-choices_vector <- c("R","sas")
+choices_vector <- c("sas")
 server <- function(input, output) {
 observe(
     if(input$initialize_button){
       path_from <- getwd()
         path_to <- gsub('\\', '/', input$path_to, fixed = TRUE)
+      # some sanity check  
+        
+      if(path_to == "" |!dir.exists(path_to) ){
+        showModal(modalDialog(
+          title = "fatal error",
+          ("you need to specify a valid path where to initialize the workspace"),
+          easyClose = TRUE
+        ))
+        }
+        else{
+
         file.copy(paste(path_from,"/analysis_workspace.zip",sep = ""),
                   paste(path_to,"/analysis_workspace.zip",sep = ""))
         setwd(path_to)
@@ -96,20 +107,22 @@ observe(
           paste0("workfloweR completed the analysis workspace initialization.\n you can find your package at: ", path_to),
           easyClose = TRUE
         ))
+        }
     }
     
   )
+    
 }
 
 ui <- fluidPage(
   h1("workflower"),
-  p("paste here a destination path where you whish to build the analytical workspace"),
+  p("paste here a destination path where you whish to initialize the analytical workspace"),
   textInput(label = "write path","path_to"),
   p("select languages you are going to work with within this project"),
   checkboxGroupInput("list",
-                     label = "select languages",
-                     choices = choices_vector,
-                     selected = c("R")),
+                     label = "select languages (R is default)",
+                     choices = choices_vector
+                     ),
   actionButton("initialize_button","initialize")
 )
 
