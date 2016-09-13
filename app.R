@@ -79,21 +79,23 @@ observe(
         
         sink()
         
-        # remove code folder based on user selections
-        dir_to_remove <- "Users/andrea_cirillo/Desktop/analysis_workspace"
-        
-     
+        # remove code folder based on user selections:
+        # first define a function checking each language against a vector, deleting
+        # folder related to missing languages
           language_remover <- function(root_path,lan){
             if (!(lan %in% input$list)){
-            dir_to_remove <- paste(root_path,lan, sep = '/')
+            dir_to_remove <- paste0(root_path,"/analysis_workspace/",lan)
             print(dir_to_remove)
-            command <- paste("rm",dir_to_remove,"-d -f -r ",sep = " ")
-            system(command)
-   
+            unlink(dir_to_remove, recursive = TRUE, force = TRUE)
             }
           }
+        # then apply the function to the vector of possibile choices and the root path
         sapply(choices_vector,language_remover, root_path = path_to)
-
+        showModal(modalDialog(
+          title = "initialization completed",
+          paste0("workfloweR completed the analysis workspace initialization.\n you can find your package at: ", path_to),
+          easyClose = TRUE
+        ))
     }
     
   )
