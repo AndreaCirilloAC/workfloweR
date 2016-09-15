@@ -126,5 +126,6 @@ ui <- fluidPage(
   actionButton("initialize_button","initialize")
 )
 
-shinyApp(ui = ui, server = server)
+app <- shinyApp(ui = ui, server = server)
 
+runApp(app)
