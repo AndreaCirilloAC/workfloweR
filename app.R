@@ -102,6 +102,7 @@ observe(
           }
         # then apply the function to the vector of possibile choices and the root path
         sapply(choices_vector,language_remover, root_path = path_to)
+            setwd(path_from)
         showModal(modalDialog(
           title = "initialization completed",
           paste0("workfloweR completed the analysis workspace initialization.\n you can find your package at: ", path_to),
