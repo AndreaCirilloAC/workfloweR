@@ -35,8 +35,14 @@ observe(
         sink("sas/00_libraries_and_variables.sas")
         cat(paste("%let root_folder = ",path_to,";\n",sep = ""))
         cat('libname root 	 "&root_folder"      access=temp;\n')
-        cat(paste("%let data_folder = ",path_to,"/data;\n",sep = ""))
-        cat('libname data 	 "&data_folder"      access=temp;\n')
+        cat(paste("%let read_only = ",path_to,"/analysis_workspace/data/0_read-only;\n",sep = ""))
+        cat('libname readonly 	 "&read_only"      access=temp;\n')
+        sink()
+        cat(paste("%let wip = ",path_to,"/analysis_workspace/data/1_wip;\n",sep = ""))
+        cat('libname wip 	 "&wip"      access=temp;\n')
+        sink()
+        cat(paste("%let out = ",path_to,"/analysis_workspace/data/3_out;\n",sep = ""))
+        cat('libname out 	 "&out"      access=temp;\n')
         sink()
         
         # initialize report
