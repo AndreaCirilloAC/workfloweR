@@ -41,7 +41,7 @@ observe(
         cat(paste("%let wip = ",path_to,"/analysis_workspace/data/1_wip;\n",sep = ""))
         cat('libname wip 	 "&wip"      access=temp;\n')
         sink()
-        cat(paste("%let out = ",path_to,"/analysis_workspace/data/3_out;\n",sep = ""))
+        cat(paste("%let out = ",path_to,"/analysis_workspace/data/2_out;\n",sep = ""))
         cat('libname out 	 "&out"      access=temp;\n')
         sink()
         
