@@ -34,9 +34,9 @@ observe(
         
         sink("sas/00_libraries_and_variables.sas")
         cat(paste("%let root_folder = ",path_to,";\n",sep = ""))
-        cat("libname root 	 '&root_folder'      access=temp;\n")
+        cat('libname root 	 "&root_folder"      access=temp;\n')
         cat(paste("%let data_folder = ",path_to,"/data;\n",sep = ""))
-        cat("libname data 	 '&data_folder'      access=temp;\n")
+        cat('libname data 	 "&data_folder"      access=temp;\n')
         sink()
         
         # initialize report
